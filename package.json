@@ -1,0 +1,16 @@
+{
+  "name": "modbusdemoclient",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "electron": "^9.1.0",
+    "modbus-serial": "^8.0.0",
+    "s": "^1.0.0"
+  }
+}

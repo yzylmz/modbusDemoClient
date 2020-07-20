@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Modbus Demo</title>
+  <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+
+<body>
+
+
+  <div class="container">
+
+    <div class="row" style="padding-top:30px;">
+      <div class="text-center"><button   class="btn btn-primary" id="newRegister">New Register</button>
+      </div>
+
+    </div>
+
+    <div class="row" style="padding: 50px;">
+
+      <div class="col-md-6">
+        <table class="table" id="inputRegisters">
+          <thead>
+
+            <th scope="col">Input Register</th>
+            <th scope="col">Value</th>
+
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+
+      <div class="col-md-6">
+        <table class="table" id="holdingRegisters">
+          <thead>
+            <th scope="col">Holding Register</th>
+            <th scope="col">Value</th>
+          </thead>
+          <tbody>
+
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const electron = require('electron');
+    const { ipcRenderer } = electron;
+
+    let newRegisterBtn = document.querySelector("#newRegister");
+
+    newRegisterBtn.addEventListener("click", () => { 
+      ipcRenderer.send("key:newWindow")
+    });
+  </script>
+
+  <script src="./mainWindow.js"></script>
+</body>
+
+
+</html>

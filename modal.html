@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>New Register</title>
+    <!-- https://electronjs.org/docs/tutorial/security#csp-meta-tag -->
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+        integrity="sha384-HSMxcRTRxnN+Bdg0JdbxYKrThecOKuH5zCYotlSAcp1+c8xmyTe9GYg1l9a69psu" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container">
+
+
+        <form style="margin-top: 20px;">
+
+            <div class="form-group">
+                <label for="registerAddr">Register address</label>
+                <input type="number" class="form-control" id="registerAddr">
+            </div>
+            <div class="form-group">
+                <label for="registerValue">Value</label>
+                <input type="number" class="form-control" id="registerValue">
+            </div>
+            <div class="text-center"> <button class="btn btn-primary" id="saveRegister">Submit</button> </div>
+
+        </form>
+
+    </div>
+
+    <script>
+        const electron = require('electron');
+        const { ipcRenderer } = electron;
+
+        let saveRegisterBtn = document.querySelector("#saveRegister");
+
+
+
+        saveRegisterBtn.addEventListener("click", () => {
+
+            let registerAddr = document.querySelector("#registerAddr");
+            let registerValue = document.querySelector("#registerValue");
+ 
+            ipcRenderer.send("key:saveWindow", registerAddr.value, registerValue.value)
+
+        });
+    </script>
+
+
+</body>
+
+
+</html>
