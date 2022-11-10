@@ -9,7 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "electron": "^9.1.0",
+    "electron": "^18.3.7",
     "modbus-serial": "^8.0.0",
     "s": "^1.0.0"
   }
